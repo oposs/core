@@ -337,7 +337,7 @@ static bool get_cert_username(struct client *client, const char **username_r,
 	}
 
 	/* get peer name */
-	const char *username = ssl_proxy_get_peer_name(client->ssl_proxy);
+	const char *username = client->ssl_proxy == NULL ? NULL : ssl_proxy_get_peer_name(client->ssl_proxy);
 
 	/* if we wanted peer name, but it was not there, fail */
 	if (client->set->auth_ssl_username_from_cert &&
@@ -347,7 +347,7 @@ static bool get_cert_username(struct client *client, const char **username_r,
 			return FALSE;
 		}
 	}
-
+	
 	*username_r = username;
 	return TRUE;
 }

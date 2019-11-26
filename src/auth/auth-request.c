@@ -322,7 +322,7 @@ void auth_request_export(struct auth_request *request, string_t *dest)
 		auth_str_add_keyvalue(dest, "requested-login-user",
 				      request->requested_login_user);
 	}
-    
+  
 	if (request->local_ip.family != 0) {
 		auth_str_add_keyvalue(dest, "lip",
 				      net_ip2addr(&request->local_ip));
