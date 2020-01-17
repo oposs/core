@@ -19,13 +19,13 @@ VERSION=${CORE_VERSION}${OP_RELEASE}
 # git pull
 
 # create clean source tar ball
-pushd ../
+pushd ../ > /dev/null
 #make distclean
 rm -f dovecot-$CORE_VERSION
 ln -s ./ dovecot-$CORE_VERSION
 tar zcf dovecot_$CORE_VERSION.orig.tar.gz --exclude dovecot_$CORE_VERSION.orig.tar.gz dovecot-$CORE_VERSION/*
 rm -f dovecot-$CORE_VERSION
-popd
+popd > /dev/null
 
 # get SRPM and extract .spec file
 
